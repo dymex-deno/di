@@ -2,6 +2,24 @@
  * A dependency injection library for Typescript to help build
  * well-structured code and easily testable applications.
  * @module
+ *
+ * @example
+ * import { container } from "jsr:@dymex-deno/di";
+ *
+ * class TestService {
+ *   printMessage() {
+ *     return "I'm printting this message inside of TestService instance.";
+ *   }
+ * }
+ *
+ * @Singleton([TestService])
+ * class Test {
+ *   constructor(public testService: TestService) {}
+ * }
+ *
+ * const testInstance = container.resolve(Test);
+ * console.log(testInstance.testService.printMessage());
+ * // logs "I'm printting this message inside of TestService instance."
  */
 
 export type { StaticInjectable } from "./types/static-inject.interface.ts";
