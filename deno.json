@@ -2,7 +2,7 @@
   "name": "@dymex-deno/di",
   "license": "ISC",
   "author": "João Parreira",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Dymexjs DI system",
   "exports": "./src/mod.ts",
   "tasks": {
