@@ -4,7 +4,6 @@ Dymexjs stands for DYnamic, Modular, EXtensible JavaScript/Typescript framework.
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/56ccd37ecb9e4e3fb7e2caa42627c19c)](https://app.codacy.com/gh/dymexjs/di/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
-[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/56ccd37ecb9e4e3fb7e2caa42627c19c)](https://app.codacy.com/gh/dymexjs/di/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
 
 A dependency injection library for Typescript/Javascript to help build
 well-structured code and easily testable applications.
@@ -37,7 +36,7 @@ injection into class fields, accessor's, methods and getter's.
 ## Instalation
 
 ```sh
-npm install --save @dymexjs/di
+deno add jsr:@dymex-deno/di
 ```
 
 ## Basic Usage
@@ -45,7 +44,7 @@ npm install --save @dymexjs/di
 ### Decorators
 
 ```typescript
-import { container } from "@dymexjs/di";
+import { container } from "jsr:@dymex-deno/di";
 
 class TestService {
   printMessage() {

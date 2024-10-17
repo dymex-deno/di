@@ -45,7 +45,7 @@ registration in the container.
 
 ```typescript
 //File: jwt.secret.ts
-import { container, Token } from "@dymexjs/di";
+import { container, Token } from "jsr:@dymex-deno/di";
 
 export const JWT_SECRET = new Token("jwt_secret");
 container.registerValue(JWT_SECRET, "my secure secret");
@@ -54,7 +54,7 @@ container.registerValue(JWT_SECRET, "my secure secret");
  * Somewhere else in the code you import the token and resolve the value from the container
  */
 // File: resolution.ts
-import { container } from "@dymexjs/di";
+import { container } from "jsr:@dymex-deno/di";
 import { JWT_SECRET } from "./jwt.secret";
 
 let secret = container.resolve(JWT_SECRET);

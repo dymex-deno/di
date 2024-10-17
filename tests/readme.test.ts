@@ -2,7 +2,10 @@ import { beforeEach, describe, test } from "jsr:@std/testing/bdd";
 import { container } from "../src/container.ts";
 import { Scoped, Singleton } from "../src/decorators.ts";
 import { StaticInjectable } from "../src/types/static-inject.interface.ts";
-import { STATIC_INJECTION_LIFETIME, STATIC_INJECTIONS } from "../src/constants.ts";
+import {
+  STATIC_INJECTION_LIFETIME,
+  STATIC_INJECTIONS,
+} from "../src/constants.ts";
 import { Lifetime } from "../src/types/registration.interface.ts";
 import { UndefinedScopeError } from "../src/exceptions/UndefinedScopeError.ts";
 import { Token } from "../src/types/injection-token.type.ts";
@@ -63,7 +66,7 @@ describe("Dymexjs_DI ", () => {
         @Singleton()
         class TestClass {}
         const instance1 = container.resolve(TestClass);
-        assert.assertInstanceOf(instance1,TestClass);
+        assert.assertInstanceOf(instance1, TestClass);
       });
       test("with registration token", () => {
         @Singleton("serviceA") //With token to register
@@ -74,7 +77,7 @@ describe("Dymexjs_DI ", () => {
         }
         const b = container.resolve<ServiceB>(ServiceB);
         assert.assertInstanceOf(b, ServiceB);
-        assert.assertInstanceOf(b.serviceA,ServiceA);
+        assert.assertInstanceOf(b.serviceA, ServiceA);
       });
       test("empty token with dependencies", () => {
         @Singleton()
@@ -84,20 +87,23 @@ describe("Dymexjs_DI ", () => {
           constructor(public serviceA: ServiceA) {}
         }
         const b = container.resolve<ServiceB>(ServiceB);
-        assert.assertInstanceOf(b,ServiceB);
-        assert.assertInstanceOf(b.serviceA,ServiceA);
+        assert.assertInstanceOf(b, ServiceB);
+        assert.assertInstanceOf(b.serviceA, ServiceA);
       });
       test("empty scoped without scope", () => {
         @Scoped()
         class TestClass {}
-        assert.assertThrows(() => container.resolve(TestClass), UndefinedScopeError);
+        assert.assertThrows(
+          () => container.resolve(TestClass),
+          UndefinedScopeError,
+        );
       });
       test("empty scoped with scope", () => {
         @Scoped()
         class TestClass {}
         const scope = container.createScope();
         const instance1 = container.resolve(TestClass, scope);
-        assert.assertInstanceOf(instance1,TestClass);
+        assert.assertInstanceOf(instance1, TestClass);
       });
     });
     describe("API", () => {

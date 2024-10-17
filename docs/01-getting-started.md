@@ -27,7 +27,7 @@ injection into class fields, accessor's, methods and getter's.
 ## Instalation
 
 ```sh
-npm install --save @dymexjs/di
+deno add jsr:@dymex-deno/di
 ```
 
 ## Basic Usage
@@ -42,7 +42,7 @@ npm install --save @dymexjs/di
 - @InjectAll
 
 ```typescript
-import { container } from "@dymexjs/di";
+import { container } from "jsr:@dymex-deno/di";
 
 class TestService {
   printMessage() {
